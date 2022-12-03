@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- 
+    CSCI 2408 Computer Graphics Fall 2022 
+    (c)2022 by Yusif Gurbanov
+    Submitted in partial fulfillment of the requirements of the course.
+    
+    My references are followings:
+    https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life 
+    http://www.ibiblio.org/lifepatterns/october1970.html
+    https://playgameoflife.com/
+    https://www.youtube.com/watch?v=ouipbDkwHWA
+    
+    Link to my online viode explaining -> https://youtu.be/Z4ry1wQ6_wc 
+    Here is my facebook account link -> https://www.facebook.com/gurbanovyusif which I shared the video on facebook too
+-->
+
+<html>
+    <head>
+        <title>Homework 1 - Bitmap images</title>       
+        <script type="text/javascript" src="./life.js"></script>
+        <style>
+            :root {
+                --dead-color: rgb(71, 71, 71);
+                --alive-color: green;
+            }
+            table{
+                background-color:rgb(41, 41, 41);
+                border-spacing: 3;
+                margin-left: auto;
+                margin-right: auto;
+                border-collapse: collapse;
+            }
+            td {
+                border: 1px solid #040404;
+                border-radius: 3px;
+                width: 8px;
+                height: 7px;
+            }
+            td.dead{
+                background-color: var(--dead-color);
+            }
+            td.live{
+                background-color: var(--alive-color);
+                border-radius: 6px;
+            }
+            #start,
+            #next,
+            #reset,
+            #import,
+            #save{
+                background-color: green;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #gridContainer{
+                padding-bottom: 8px;
+            }
+            .title{
+                text-align: center;
+                
+            }
+            .buttons,
+            .file{
+                
+                
+                bottom: 85%;
+                gap: 8px;
+            }
+            
+            body{
+                background-color:rgb(158, 156, 156);
+                
+            }
+            @media (max-width: 768px){
+                .buttons{
+                display: flex;
+                flex-direction: column;
+            }
+            }
+            
+            
+        </style>
+    </head>
+    
+    <body>
+        <div id="title">
+            <h1 class="title">Game of life</h1>
+        </div>
+
+        <div class="buttons">
+            <button id='start' ><span>Start</span></button>
+            <button id='next' ><span>Next</span></button>
+            <button id='save'><span>Save</span></button>
+            <button id='reset'><span>Reset</span></button>
+            <input type="file" id="file">
+            <input type="number" placeholder="delay in milliseconds"  id="speed">
+            <input type="color" id="alivecolor">
+            <input type="color" id="deadcolor">
+            <input type="number" placeholder='default 50 columns' id="column">
+            <input type="number" placeholder='default 50 rows' id="row">
+        </div>
+        <div id='gridContainer'></div>
+        <center>
+            <canvas id="gl-canvas" width="800" height="600">
+            Sorry ... your browser doesn't support the HTML5 canvas element.
+            </canvas>
+        </center>
+   
+    </body>
+</html>
